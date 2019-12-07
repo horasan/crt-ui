@@ -18,7 +18,7 @@
         <div class="col-xs-6">
             <div class="input-group">
                 <span class="input-group-addon">Competitor Name:</span>
-                <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name" (keyup)="onKey($event)"/>
+                <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name" (keyup)="onSearchNameKey($event)"/>
             </div>
         </div>
 
@@ -41,3 +41,24 @@
         </div>
     </div>
 </div>
+
+<div class="container">           
+    <table class="table table-hover">
+            <thead>
+                    <tr>
+                      <th>CompetitorId</th>
+                      <th>Name</th>
+                      <th>Accumulated Points</th>
+                      <th>Rank</th>
+                    </tr>
+                  </thead>
+        <tbody *ngFor="let competitionResult of competitionResultFromApi">
+            <tr>
+                <th>{{ competitionResult.wsCompetitor.competitorId }}</th>
+                <th>{{ competitionResult.wsCompetitor.name }}</th>
+                <th>{{ competitionResult.accumulatedPoints }}</th>
+                <th>{{ competitionResult.ranking }}</th>
+            </tr>
+        </tbody>
+    </table>
+  </div>

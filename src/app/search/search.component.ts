@@ -68,9 +68,20 @@ export class SearchComponent implements OnInit {
       
       console.log(this.searchName);
     this.competitionResult = new Array(competitionResult1, competitionResult2, competitionResult3);
+
+
+//http://localhost:5000/competitorapi/v1/competitor/name/name1
+this.http.get('http://localhost:5000/competitorapi/v1/competitor/name/' + this.searchName)
+.subscribe((res: any) => {
+  this.competitionResultFromApi = res;
+  console.log(this.competitionResultFromApi);
+}, err => {
+  console.log(err);
+});
+
   }
 
-  onKey(event: any) { // without type info
+  onSearchNameKey(event: any) { // without type info
     this.searchName = event.target.value;
   }
 
