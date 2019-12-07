@@ -1,38 +1,30 @@
 <hr>
 <div class="form-group">
-    <!--
-    <div class="row">
-        <div class="col-xs-6">
-            <div class="input-group">
-                <span class="input-group-addon">Competitor Name:</span>
-                <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name"
-                    (keyup)="onSearchNameKey($event)" />
-            </div>
-        </div>
-
-        <div class="col-xs-6">
-            <button type="button" class="btn btn-primary" (click)="onGetCompetitorInfo($event)">Get Competitor
-                Info</button>
-        </div>
-    </div>
-    -->
     <div class="row">
         <div class="container">
-                <div class="col-xs-6">
-                        <div class="input-group">
-                            <span class="input-group-addon">Competitor Name:</span>
-                            <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name"
-                                (keyup)="onSearchNameKey($event)" />
-                        </div>
-                    </div>
-            
-                    <div class="col-xs-6">
-                        <button type="button" class="btn btn-primary" (click)="onGetCompetitorInfo($event)">Get Competitor
-                            Info</button>
-                    </div>
-                    <div class="col-xs-6">
-                        <hr>
-                    </div>
+            <div class="col-xs-6">
+                <div class="input-group">
+                    <span class="input-group-addon">Competitor Name:</span>
+                    <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name"
+                        (keyup)="onSearchNameKey($event)" />
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+
+                <button id="getCompetitorInfo" type="button" class="btn btn-primary"
+                    (click)="onGetCompetitorInfo($event)">Get Competitor
+                    Info</button>
+                <label *ngIf="errorOccured">
+                    <input type="checkbox" value="" (change)="onShowErrorChange($event)">Show Error Response</label>
+            </div>
+
+            <div class="col-xs-15">
+                <hr>
+                <div *ngIf="errorMessage" class="alert alert-warning">
+                    <strong>Warning!</strong> {{errorMessage}}
+                </div>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -51,6 +43,26 @@
                     </tr>
                 </tbody>
             </table>
+            <div *ngIf="showError" class="col-xs-6">
+                    <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Time Stamp</th>
+                                    <th>Message</th>
+                                    <th>Code</th>
+                                    <th>HTTP Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>{{ errorResponse.timeStamp }}</th>
+                                    <th>{{ errorResponse.message }}</th>
+                                    <th>{{ errorResponse.code }}</th>
+                                    <th>{{ errorResponse.status }}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
         </div>
     </div>
 </div>

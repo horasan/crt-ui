@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CompetitionResult } from '../competition-model/competition-result.model';
 import { Competitor } from '../competition-model/competitor.model';
 import { Observable } from "rxjs";
+import { CRTErrorResponse } from '../error-handling-model/crt-error-response.model';
 
 @Component({
   selector: 'app-search',
@@ -12,6 +13,10 @@ import { Observable } from "rxjs";
 export class SearchComponent implements OnInit {
 
   public searchName: string;
+  public errorMessage: string = '';
+  public errorResponse: CRTErrorResponse;
+  public errorOccured: boolean = false;
+  public showError: boolean = false;
 
   //public competitionResult: CompetitionResult[];
     public competitionResultFromApi: Observable<CompetitionResult[]>;
@@ -30,23 +35,44 @@ export class SearchComponent implements OnInit {
     this.http.get('http://localhost:5000/competitionapi/v1/competition/ranking/1')
       .subscribe(responseData => console.log(responseData));
 */
-
+    /*
     this.http.get('http://localhost:5000/competitionapi/v1/competition/ranking/1')
       .subscribe((res: any) => {
         this.competitionResultFromApi = res;
         console.log(this.competitionResultFromApi);
       }, err => {
+        this.competitionResultFromApi = null;
         console.log(err);
-      });
+      });*/
+  }
+
+  public onShowErrorChange(event: any) { 
+    this.showError = !this.showError;
   }
 
   public onGetCompetitorInfo(event: any) {
+    this.errorMessage = '';
     this.http.get('http://localhost:5000/competitorapi/v1/competitor/name/' + this.searchName)
     .subscribe((res: any) => {
       this.competitionResultFromApi = res;
       console.log(this.competitionResultFromApi);
-    }, err => {
-      console.log(err);
+      this.errorOccured = false;
+    }, errorRes => {
+      this.errorOccured = true;
+      this.competitionResultFromApi = null;
+
+        this.errorResponse = errorRes.error;
+
+        console.log(this.errorResponse);
+
+      this.errorMessage = errorRes.message;
+
+      if (errorRes.status == 404) {
+        this.errorMessage = 'Record not found for ' + this.searchName;
+      }
+
+     // console.log('status: ' + error.status);
+      //console.log(error);
     });
     
 
