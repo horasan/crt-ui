@@ -1,7 +1,7 @@
 import { Competitor } from './competitor.model';
 
 export class CompetitionResult {
-    public competitor: Competitor ;
+    public wsCompetitor: Competitor ;
     public accumulatedPoints: number;
     public ranking: number;
 

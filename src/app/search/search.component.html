@@ -1,1 +1,24 @@
 <p>search works!</p>
+<!--
+<div>
+    <li *ngFor="let competitionResult of competitionResult">
+        {{ competitionResult.competitor.competitorId }}
+        {{ competitionResult.competitor.name }}
+        {{ competitionResult.accumulatedPoints }}
+        {{ competitionResult.ranking }}
+
+    </li>
+</div>
+-->
+<hr>
+<div>
+        <li *ngFor="let competitionResult of competitionResultFromApi">
+            
+            {{ competitionResult.wsCompetitor.competitorId }}
+            {{ competitionResult.wsCompetitor.name }}
+            
+            {{ competitionResult.accumulatedPoints }}
+            {{ competitionResult.ranking }}
+    
+        </li>
+    </div>
