@@ -7,7 +7,7 @@ export class CompetitionResult {
 
     constructor(competitor: Competitor, accumulatedPoints: number,
         ranking: number) {
-            this.competitor = competitor;
+            this.wsCompetitor = competitor;
             this.accumulatedPoints = accumulatedPoints;
             this.ranking = ranking;
         }

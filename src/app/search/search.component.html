@@ -1,24 +1,43 @@
 <p>search works!</p>
 <!--
+
+-->
+<hr>
 <div>
-    <li *ngFor="let competitionResult of competitionResult">
-        {{ competitionResult.competitor.competitorId }}
-        {{ competitionResult.competitor.name }}
+    <li *ngFor="let competitionResult of competitionResultFromApi">
+
+        {{ competitionResult.wsCompetitor.competitorId }}
+        {{ competitionResult.wsCompetitor.name }}
         {{ competitionResult.accumulatedPoints }}
         {{ competitionResult.ranking }}
 
     </li>
 </div>
--->
-<hr>
-<div>
-        <li *ngFor="let competitionResult of competitionResultFromApi">
-            
-            {{ competitionResult.wsCompetitor.competitorId }}
-            {{ competitionResult.wsCompetitor.name }}
-            
-            {{ competitionResult.accumulatedPoints }}
-            {{ competitionResult.ranking }}
-    
-        </li>
+<div class="form-group">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="input-group">
+                <span class="input-group-addon">Competitor Name:</span>
+                <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name" (keyup)="onKey($event)"/>
+            </div>
+        </div>
+
+        <div class="col-xs-3">
+            <button type="button" class="btn btn-primary" (click)="onGetCompetitorInfo($event)">Get Competitor Info</button>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-xs-3">
+            
+            <div>
+                    <li *ngFor="let competitionResult of competitionResult">
+                        {{ competitionResult.wsCompetitor.competitorId }}
+                        {{ competitionResult.wsCompetitor.name }}
+                        {{ competitionResult.accumulatedPoints }}
+                        {{ competitionResult.ranking }}
+                
+                    </li>
+                </div>
+        </div>
+    </div>
+</div>

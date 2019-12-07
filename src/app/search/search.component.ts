@@ -11,6 +11,8 @@ import { Observable } from "rxjs";
 })
 export class SearchComponent implements OnInit {
 
+  public searchName: string;
+
   public competitionResult: CompetitionResult[];
   //public competitionResultFromApi: CompetitionResult[];
   public competitionResultFromApi: Observable<CompetitionResult[]>;
@@ -21,16 +23,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
 
-    let competitor1 = new Competitor("id1", "name1");
-
-    let competitionResult1 = new CompetitionResult(
-      competitor1, 101, 1);
-
-    let competitor2 = new Competitor("id2", "name2");
-    let competitionResult2 = new CompetitionResult(
-      competitor1, 202, 2);
-
-    this.competitionResult = new Array(competitionResult1, competitionResult2);
+    
 
 
 
@@ -52,6 +45,33 @@ export class SearchComponent implements OnInit {
       }, err => {
         console.log(err);
       });
+  }
+
+  public onGetCompetitorInfo(event: any) {
+
+    console.log(event);
+
+    let competitor1 = new Competitor("id1", "name1");
+
+    let competitionResult1 = new CompetitionResult(
+      competitor1, 101, 1);
+
+    let competitor2 = new Competitor("id2", "name2");
+    let competitionResult2 = new CompetitionResult(
+      competitor2, 202, 2);
+
+     
+      let competitor3 = new Competitor("id3", this.searchName);
+    let competitionResult3 = new CompetitionResult(
+      competitor3, 303, 3);
+
+      
+      console.log(this.searchName);
+    this.competitionResult = new Array(competitionResult1, competitionResult2, competitionResult3);
+  }
+
+  onKey(event: any) { // without type info
+    this.searchName = event.target.value;
   }
 
 }
