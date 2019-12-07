@@ -1,64 +1,56 @@
-<p>search works!</p>
-<!--
-
--->
 <hr>
-<div>
-    <li *ngFor="let competitionResult of competitionResultFromApi">
-
-        {{ competitionResult.wsCompetitor.competitorId }}
-        {{ competitionResult.wsCompetitor.name }}
-        {{ competitionResult.accumulatedPoints }}
-        {{ competitionResult.ranking }}
-
-    </li>
-</div>
 <div class="form-group">
+    <!--
     <div class="row">
         <div class="col-xs-6">
             <div class="input-group">
                 <span class="input-group-addon">Competitor Name:</span>
-                <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name" (keyup)="onSearchNameKey($event)"/>
+                <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name"
+                    (keyup)="onSearchNameKey($event)" />
             </div>
         </div>
 
-        <div class="col-xs-3">
-            <button type="button" class="btn btn-primary" (click)="onGetCompetitorInfo($event)">Get Competitor Info</button>
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary" (click)="onGetCompetitorInfo($event)">Get Competitor
+                Info</button>
         </div>
     </div>
+    -->
     <div class="row">
-        <div class="col-xs-3">
+        <div class="container">
+                <div class="col-xs-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Competitor Name:</span>
+                            <input id="msg" type="text" class="form-control" name="searchName" placeholder="Name"
+                                (keyup)="onSearchNameKey($event)" />
+                        </div>
+                    </div>
             
-            <div>
-                    <li *ngFor="let competitionResult of competitionResult">
-                        {{ competitionResult.wsCompetitor.competitorId }}
-                        {{ competitionResult.wsCompetitor.name }}
-                        {{ competitionResult.accumulatedPoints }}
-                        {{ competitionResult.ranking }}
-                
-                    </li>
-                </div>
+                    <div class="col-xs-6">
+                        <button type="button" class="btn btn-primary" (click)="onGetCompetitorInfo($event)">Get Competitor
+                            Info</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <hr>
+                    </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>CompetitorId</th>
+                        <th>Name</th>
+                        <th>Accumulated Points</th>
+                        <th>Rank</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let competitionResult of competitionResultFromApi">
+                    <tr>
+                        <th>{{ competitionResult.wsCompetitor.competitorId }}</th>
+                        <th>{{ competitionResult.wsCompetitor.name }}</th>
+                        <th>{{ competitionResult.accumulatedPoints }}</th>
+                        <th>{{ competitionResult.ranking }}</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-
-<div class="container">           
-    <table class="table table-hover">
-            <thead>
-                    <tr>
-                      <th>CompetitorId</th>
-                      <th>Name</th>
-                      <th>Accumulated Points</th>
-                      <th>Rank</th>
-                    </tr>
-                  </thead>
-        <tbody *ngFor="let competitionResult of competitionResultFromApi">
-            <tr>
-                <th>{{ competitionResult.wsCompetitor.competitorId }}</th>
-                <th>{{ competitionResult.wsCompetitor.name }}</th>
-                <th>{{ competitionResult.accumulatedPoints }}</th>
-                <th>{{ competitionResult.ranking }}</th>
-            </tr>
-        </tbody>
-    </table>
-  </div>

@@ -13,23 +13,16 @@ export class SearchComponent implements OnInit {
 
   public searchName: string;
 
-  public competitionResult: CompetitionResult[];
-  //public competitionResultFromApi: CompetitionResult[];
-  public competitionResultFromApi: Observable<CompetitionResult[]>;
+  //public competitionResult: CompetitionResult[];
+    public competitionResultFromApi: Observable<CompetitionResult[]>;
 
-  //courses$: Observable<Course[]>;
+  
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
 
-    
-
-
-
-
-
-    /*this.http
+       /*this.http
             .get<Course[]>("/courses.json")
             .map(data => _.values(data))
             .do(console.log);*/
@@ -48,7 +41,16 @@ export class SearchComponent implements OnInit {
   }
 
   public onGetCompetitorInfo(event: any) {
+    this.http.get('http://localhost:5000/competitorapi/v1/competitor/name/' + this.searchName)
+    .subscribe((res: any) => {
+      this.competitionResultFromApi = res;
+      console.log(this.competitionResultFromApi);
+    }, err => {
+      console.log(err);
+    });
+    
 
+    /*
     console.log(event);
 
     let competitor1 = new Competitor("id1", "name1");
@@ -68,16 +70,7 @@ export class SearchComponent implements OnInit {
       
       console.log(this.searchName);
     this.competitionResult = new Array(competitionResult1, competitionResult2, competitionResult3);
-
-
-//http://localhost:5000/competitorapi/v1/competitor/name/name1
-this.http.get('http://localhost:5000/competitorapi/v1/competitor/name/' + this.searchName)
-.subscribe((res: any) => {
-  this.competitionResultFromApi = res;
-  console.log(this.competitionResultFromApi);
-}, err => {
-  console.log(err);
-});
+    */
 
   }
 
