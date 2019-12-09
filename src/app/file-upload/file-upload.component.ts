@@ -53,15 +53,15 @@ export class FileUploadComponent implements OnInit {
           "rawFileContent": reader.result
         })
           .subscribe(res => {
-            console.log(res);
+            
             this.fileUploadResult = "File is uploaded successfully!";
           }, errorRes => {
-              console.log(errorRes.error);
+            
               this.fileUploadResult = errorRes.error.message;
             }
       )
 
-        console.log(reader.result);
+        
       };
 
     reader.readAsText(this.fileData);
