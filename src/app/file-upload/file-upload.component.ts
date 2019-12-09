@@ -55,7 +55,11 @@ export class FileUploadComponent implements OnInit {
           .subscribe(res => {
             console.log(res);
             this.fileUploadResult = "File is uploaded successfully!";
-          })
+          }, errorRes => {
+              console.log(errorRes.error);
+              this.fileUploadResult = errorRes.error.message;
+            }
+      )
 
         console.log(reader.result);
       };
