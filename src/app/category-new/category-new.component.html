@@ -1,0 +1,21 @@
+<hr>
+<div class="form-group">
+    <div class="row">
+        <div class="container">
+                <div class="col-xs-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Category Name:</span>
+                            <input id="idCategoryName" type="text" class="form-control" name="categoryName" placeholder="Category Name"
+                                (keyup)="onKeyUpCategoryName($event)" />
+                        </div>
+                        <div class="input-group">
+                                <span class="input-group-addon">Category Name:</span>
+                                <input id="idCategoryOrder" type="text" class="form-control" name="categoryOrder" placeholder="Category Order"
+                                    (keyup)="onKeyUpCategoryOrder($event)" />
+                        </div>
+                        <button id="saveNewCategory" type="button" class="btn btn-primary"
+                    (click)="onSaveNewCategory($event)">Save</button>
+                    </div>
+        </div>
+    </div>
+</div>

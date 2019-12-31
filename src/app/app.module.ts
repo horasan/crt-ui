@@ -7,13 +7,17 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routing/routing-module';
+import { CategoryComponent } from './category/category.component';
+import { CategoryNewComponent } from './category-new/category-new.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FileUploadComponent,
-    SearchComponent
+    SearchComponent,
+    CategoryComponent,
+    CategoryNewComponent
   ],
   imports: [
     BrowserModule,

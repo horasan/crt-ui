@@ -1,0 +1,31 @@
+<hr>
+<div class="form-group">
+    <div class="row">
+        <div class="container">
+                <button id="showNewCategoryComponent" type="button" class="btn btn-primary"
+                (click)="onShowNewCategoryComponent($event)">New</button>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>CategoryId</th>
+                        <th>Name</th>
+                        <th>Order</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let category of categoryListFromApi">
+                    <tr>
+                        <th>{{ category.id }}</th>
+                        <th>{{ category.name }}</th>
+                        <th>{{ category.uiOrder }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="showNewCategoryComponent" class="row">
+        <div class="container">
+            <app-category-new></app-category-new>
+        </div>
+    </div>
+</div>
