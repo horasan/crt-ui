@@ -9,6 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routing/routing-module';
 import { CategoryComponent } from './category/category.component';
 import { CategoryNewComponent } from './category-new/category-new.component';
+import { FormsModule } from '@angular/forms';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { ElasticComponent } from './elastic/elastic.component';
+import { CorefreComponent } from './corefre/corefre.component';
+import { AaMenuComponent } from './aa-menu/aa-menu.component';
+import { AaMenuListComponent } from './aa-menu-list/aa-menu-list.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +23,18 @@ import { CategoryNewComponent } from './category-new/category-new.component';
     FileUploadComponent,
     SearchComponent,
     CategoryComponent,
-    CategoryNewComponent
+    CategoryNewComponent,
+    AuthenticationComponent,
+    ElasticComponent,
+    CorefreComponent,
+    AaMenuComponent,
+    AaMenuListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

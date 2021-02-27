@@ -4,6 +4,7 @@
         <div class="container">
                 <button id="showNewCategoryComponent" type="button" class="btn btn-primary"
                 (click)="onShowNewCategoryComponent($event)">New</button>
+                <input type="text" placeholder="enter search value..." (keyup)="searchDepartmentsWithName($event.target.value)" class="ticketinginput" />
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -18,6 +19,15 @@
                         <th>{{ category.id }}</th>
                         <th>{{ category.name }}</th>
                         <th>{{ category.uiOrder }}</th>
+                        <th>
+                                <button  type="button" class="btn btn-primary"
+                                (click)="onEditCategoryComponent(category.id, category.name, category.uiOrder)">Edit</button>
+                        </th>
+                    </tr>
+                </tbody>
+                <tbody *ngFor="let handyInfo of handyInfoListFromApi">
+                    <tr>
+                        <th>{{ handyInfo.info }}</th>
                     </tr>
                 </tbody>
             </table>

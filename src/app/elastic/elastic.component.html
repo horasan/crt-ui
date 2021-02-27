@@ -1,0 +1,43 @@
+<hr>
+<div class="form-group">
+    
+    <div class="row">
+        <div class="container">
+                <h6>Search a single word</h6>
+                <!--<button id="showNewCategoryComponent" type="button" class="btn btn-primary"
+                 (click)="onShowNewCategoryComponent($event)">New</button> -->
+                <input type="text" placeholder="enter search value..." (keyup)="onSearchForSingleWord($event.target.value)" class="ticketinginput" />
+                <hr>
+                <h6>Search suggestion</h6>
+                <input type="text" placeholder="enter search value..." (keyup)="onSearchForSuggestion($event.target.value)" class="ticketinginput" />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Info</th>
+                        <th>Tags</th>
+                        <th>Id</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let handyInfo of handyInfoListFromApi">
+                    <tr>
+                        <th>{{ handyInfo.decription }}</th>
+                        <th>{{ handyInfo.info }}</th>
+                        <th>{{ handyInfo.tags }}</th>
+                        <th>{{ handyInfo.id }}</th>
+                        <th>
+                                <button  type="button" class="btn btn-primary"
+                                (click)="onDeleteHandyInfo(handyInfo.id)">Delete</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="showNewCategoryComponent" class="row">
+        <div class="container">
+            <app-category-new></app-category-new>
+        </div>
+    </div>
+</div>
+<hr>

@@ -1,0 +1,17 @@
+<hr>
+<div class="form-group">
+    <div class="row">
+        <div class="container">
+            <input type="text" [(ngModel)]="newMenuItemName" placeholder="name" class="ticketinginput" />
+            <input type="text" [(ngModel)]="newMenuItemPath" placeholder="path" class="ticketinginput" />
+            <input type="text" [(ngModel)]="newMenuItemTags" placeholder="tags" class="ticketinginput" />
+            <input type="text" [(ngModel)]="newMenuItemDescription" placeholder="Description" class="ticketinginput" />
+        </div>
+        <div class="container">
+                <button id="clearScreen" type="button" class="btn btn-primary"
+                (click)="onClearScreen($event)">Clear Screen</button>
+                <button id="saveMenu" type="button" class="btn btn-primary"
+                (click)="onSaveMenu()">Save</button>
+        </div>  
+    </div>
+</div>

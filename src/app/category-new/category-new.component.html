@@ -3,18 +3,20 @@
     <div class="row">
         <div class="container">
                 <div class="col-xs-6">
-                        <div class="input-group">
+                        <div class="input-group">c
                             <span class="input-group-addon">Category Name:</span>
                             <input id="idCategoryName" type="text" class="form-control" name="categoryName" placeholder="Category Name"
-                                (keyup)="onKeyUpCategoryName($event)" />
+                                (keyup)="onKeyUpCategoryName($event)" [(ngModel)]="existingCategory.name"/>
                         </div>
                         <div class="input-group">
-                                <span class="input-group-addon">Category Name:</span>
+                                <span class="input-group-addon">Category UI Order:</span>
                                 <input id="idCategoryOrder" type="text" class="form-control" name="categoryOrder" placeholder="Category Order"
-                                    (keyup)="onKeyUpCategoryOrder($event)" />
+                                    (keyup)="onKeyUpCategoryOrder($event)" [(ngModel)]="existingCategory.uiOrder" />
                         </div>
                         <button id="saveNewCategory" type="button" class="btn btn-primary"
                     (click)="onSaveNewCategory($event)">Save</button>
+                    <button id="cancelNewCategory" type="button" class="btn btn-primary"
+                    (click)="onCancelNewCategory($event)">Cancel</button>
                     </div>
         </div>
     </div>
